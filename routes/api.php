@@ -59,6 +59,9 @@ Route::namespace('Api')->group(function () {
         Route::post('update-profile', 'AppController@update_profile')->name('update-profile');
 
         Route::post('upload-profile-picture', 'AppController@upload_profile_picture');
+        Route::post('upload', 'AppController@upload');
+
+
     });
 
 

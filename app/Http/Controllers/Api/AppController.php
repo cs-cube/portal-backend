@@ -100,4 +100,22 @@ class AppController extends Controller
             'data' => Storage::url($filePath)
         ];
     }
+
+    public  function upload(Request $request){
+
+        $image = $request->file('image');
+        $name = 'post-'. date('Ymdhis');
+        $folder = 'images/posts/';
+        $filePath = $folder . $name. '.' . $image->getClientOriginalExtension();
+
+
+        $image->storeAs($folder, $name.'.'.$image->getClientOriginalExtension());
+
+
+        return [
+            'data' => [
+                'image_url' => Storage::url($filePath)
+            ]
+        ];
+    }
 }
