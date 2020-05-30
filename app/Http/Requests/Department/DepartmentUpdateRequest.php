@@ -34,7 +34,8 @@ class DepartmentUpdateRequest extends FormRequest
                         'required',
                         'max:10',
                         Rule::unique('departments', 'code')->ignore( $this->route('department') )
-            ]
+            ],
+            'college_id' => 'required|exists:colleges,id',
         ];
     }
 }

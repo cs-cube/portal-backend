@@ -18,11 +18,14 @@ class DepartmentController extends Controller
      * @param  \App\Models\College  $college
      * @return \Illuminate\Http\Response
      */
-    public function index(College $college)
+    public function index(Request $request)
     {
-        $query = $college->departments();
+        $query = Department::query();
 
-        $departments = $query->paginate($this->per_page);
+        $query->search( $request->q );
+
+
+        $departments = $query->paginate($this->page_size);
 
         return DepartmentResource::collection($departments);
     }
@@ -34,11 +37,11 @@ class DepartmentController extends Controller
      * @param  \App\Models\College  $college
      * @return \Illuminate\Http\Response
      */
-    public function store(DepartmentCreateRequest $request, College $college)
+    public function store(DepartmentCreateRequest $request)
     {
         $data = $request->validated();
 
-        $department = $college->departments()->create( $data );
+        $department = Department::create( $data );
 
         return new DepartmentResource($department);
     }
@@ -50,7 +53,7 @@ class DepartmentController extends Controller
      * @param  \App\Models\Department  $department
      * @return \Illuminate\Http\Response
      */
-    public function show(College $college, Department $department)
+    public function show(Department $department)
     {
         $department->load('programs');
         return new DepartmentResource($department);
@@ -64,7 +67,7 @@ class DepartmentController extends Controller
      * @param  \App\Models\Department  $department
      * @return \Illuminate\Http\Response
      */
-    public function update(DepartmentUpdateRequest $request, College $college, Department $department)
+    public function update(DepartmentUpdateRequest $request, Department $department)
     {
         $data = $request->validated();
 
@@ -80,7 +83,7 @@ class DepartmentController extends Controller
      * @param  \App\Models\Department  $department
      * @return \Illuminate\Http\Response
      */
-    public function destroy(College $college, Department $department)
+    public function destroy(Department $department)
     {
         //
     }

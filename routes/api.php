@@ -51,6 +51,7 @@ Route::namespace('Api')->group(function () {
 
         Route::apiResource('colleges/{college}/departments', 'DepartmentController');
         Route::apiResource('colleges', 'CollegeController');
+        Route::apiResource('departments', 'DepartmentController');
         Route::apiResource('programs', 'ProgramController');
 
         // Route::post('logout', 'AuthController@logout');

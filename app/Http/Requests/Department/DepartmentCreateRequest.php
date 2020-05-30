@@ -26,6 +26,7 @@ class DepartmentCreateRequest extends FormRequest
         return [
             'name' => 'required|max:100|unique:departments,name',
             'code' => 'required|max:10|unique:departments,code',
+            'college_id' => 'required|exists:colleges,id',
         ];
     }
 }
