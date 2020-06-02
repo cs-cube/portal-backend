@@ -18,7 +18,8 @@ class DepartmentResource extends JsonResource
             'id'   => $this->id,
             'name' => $this->name,
             'code' => $this->code,
-            'programs' => $this->whenLoaded('programs')
+            'programs' => $this->whenLoaded('programs'),
+            'college' => $this->whenLoaded('college')
         ];
     }
 }

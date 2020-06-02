@@ -55,7 +55,7 @@ class DepartmentController extends Controller
      */
     public function show(Department $department)
     {
-        $department->load('programs');
+        $department->load(['programs', 'college']);
         return new DepartmentResource($department);
     }
 

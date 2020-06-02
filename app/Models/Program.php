@@ -32,4 +32,9 @@ class Program extends BaseModel
     {
         return $this->hasMany(Student::class);
     }
+
+    public function department()
+    {
+        return $this->belongsTo(Department::class);
+    }
 }

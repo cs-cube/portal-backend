@@ -18,6 +18,10 @@ class Department extends BaseModel
         return $this->hasMany(Program::class);
     }
 
+    public function college()
+    {
+        return $this->belongsTo(College::class);
+    }
 
 
     public function scopeSearch(Builder $query, $q){

@@ -26,7 +26,8 @@ class ProgramCreateRequest extends FormRequest
         return [
             'name' => 'required|max:50|unique:programs,name',
             'code' => 'required|max:10|unique:programs,code',
-            'no_of_years' => 'required|max:6|min:1'
+            'no_of_years' => 'required|max:6|min:1',
+            'department_id' => 'nullable|exists:departments,id'
         ];
     }
 }

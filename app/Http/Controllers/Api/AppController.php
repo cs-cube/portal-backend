@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\UserResource;
+use App\Models\College;
+use App\Models\Department;
 use App\Models\Event;
 use App\Models\Post;
 use App\Models\Program;
@@ -21,7 +23,9 @@ class AppController extends Controller
                 'posts' => Post::count(),
                 'events' => Event::count(),
                 'semester' => '2<sup>nd</sup> Sem 2019-2020',
-                'programs' => Program::count()
+                'programs' => Program::count(),
+                'colleges' => College::count(),
+                'departments' => Department::count()
             ]
         ];
     }

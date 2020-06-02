@@ -22,6 +22,8 @@ class ProgramController extends Controller
 
         $query->search($request->q);
 
+        $query->with('department');
+
         $programs = $query->paginate($request->per_page);
 
         return ProgramResource::collection($programs);
@@ -50,7 +52,7 @@ class ProgramController extends Controller
      */
     public function show(Program $program)
     {
-        $program->load(['students']);
+        $program->load(['students', 'department']);
         return new ProgramResource($program);
     }
 
