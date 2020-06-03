@@ -23,6 +23,13 @@ class Student extends BaseModel
         'home_address'
     ];
 
+    protected $sortable = [
+        'id_number',
+        'fullname',
+        'program',
+        'year_level'
+    ];
+
     public $dispatchesEvents = [
         'creating' => StudentCreating::class,
         'created' => StudentCreated::class,
@@ -56,5 +63,25 @@ class Student extends BaseModel
     public function program()
     {
         return $this->belongsTo(Program::class);
+    }
+
+    public function scopeSort(Builder $q){
+        if($this->sortDir)
+            switch($this->sortBy){
+                case 'id_number':
+                    $q->orderBy('id_number', $this->sortDir);
+                    break;
+                case 'fullname':
+                    $q->orderBy('lastname', $this->sortDir)
+                        ->orderBy('firstname', 'asc');
+                    break;
+                case 'program':
+                    $q->join('programs', 'programs.id','=', 'students.program_id')
+                        ->orderBy('programs.code', $this->sortDir);
+                    break;
+                case 'year_level':
+                    $q->orderBy('year_level', $this->sortDir);
+                    break;
+            }
     }
 }

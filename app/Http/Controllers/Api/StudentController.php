@@ -31,6 +31,10 @@ class StudentController extends Controller
 
         $query->search($request->q);
 
+        $query->with('program');
+
+        $query->sort();
+
         $students = $query->paginate($request->per_page);
 
         return StudentResource::collection($students);
