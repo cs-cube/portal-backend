@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Program\ProgramCreateRequest;
+use App\Http\Requests\Program\ProgramStoreRequest;
 use App\Http\Requests\Program\ProgramUpdateRequest;
 use App\Http\Resources\ProgramResource;
 use App\Models\Program;
@@ -32,10 +32,10 @@ class ProgramController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  App\Http\Requests\Program\ProgramCreateRequest  $request
+     * @param  App\Http\Requests\Program\ProgramStoreRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ProgramCreateRequest $request)
+    public function store(ProgramStoreRequest $request)
     {
         $data = $request->validated();
 

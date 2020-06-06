@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\College\CollegeCreateRequest;
+use App\Http\Requests\College\CollegeStoreRequest;
 use App\Http\Requests\College\CollegeUpdateRequest;
 use App\Http\Resources\CollegeResource;
 use App\Models\College;
@@ -32,10 +32,10 @@ class CollegeController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  App\Http\Requests\College\CollegeCreateRequest  $request
+     * @param  App\Http\Requests\College\CollegeStoreRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CollegeCreateRequest $request)
+    public function store(CollegeStoreRequest $request)
     {
         $data = $request->validated();
 

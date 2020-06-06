@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Department\DepartmentCreateRequest;
+use App\Http\Requests\Department\DepartmentStoreRequest;
 use App\Http\Requests\Department\DepartmentUpdateRequest;
 use App\Http\Resources\DepartmentResource;
 use App\Models\College;
@@ -37,7 +37,7 @@ class DepartmentController extends Controller
      * @param  \App\Models\College  $college
      * @return \Illuminate\Http\Response
      */
-    public function store(DepartmentCreateRequest $request)
+    public function store(DepartmentStoreRequest $request)
     {
         $data = $request->validated();
 

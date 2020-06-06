@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Program;
+namespace App\Http\Requests\College;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ProgramCreateRequest extends FormRequest
+class CollegeStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,10 +24,8 @@ class ProgramCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:50|unique:programs,name',
-            'code' => 'required|max:10|unique:programs,code',
-            'no_of_years' => 'required|max:6|min:1',
-            'department_id' => 'nullable|exists:departments,id'
+            'name' => 'required|max:100|unique:colleges,name',
+            'code' => 'required|max:10|unique:colleges,code',
         ];
     }
 }

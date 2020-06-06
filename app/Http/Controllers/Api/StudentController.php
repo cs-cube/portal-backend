@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Student\StudentCreateRequest;
+use App\Http\Requests\Student\StudentStoreRequest;
 use App\Http\Requests\Student\StudentUpdateRequest;
 use App\Http\Resources\StudentResource;
 use App\Models\Student;
@@ -46,7 +46,7 @@ class StudentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StudentCreateRequest $request)
+    public function store(StudentStoreRequest $request)
     {
         $data = $request->validated();
 

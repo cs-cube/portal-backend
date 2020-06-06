@@ -4,7 +4,7 @@ namespace App\Http\Requests\Department;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class DepartmentCreateRequest extends FormRequest
+class DepartmentStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

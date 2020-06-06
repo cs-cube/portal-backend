@@ -7,7 +7,7 @@ use App\Rules\StudentIdPatternRule;
 use App\Rules\StudentYearLevelRule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StudentCreateRequest extends FormRequest
+class StudentStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
